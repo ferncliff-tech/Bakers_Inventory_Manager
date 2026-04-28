@@ -1,4 +1,4 @@
-export function Receipt1() {
+export function Croissant() {
 	return (
 		<svg width='17px' height='17px' viewBox='0 0 2200 2200' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
 			<g fill="#000000" stroke="none">

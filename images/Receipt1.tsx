@@ -1,7 +1,7 @@
 export function Receipt1() {
 	return (
-		<svg width='17px' height='17px' viewBox='0 0 2250 2250' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
-			<g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+		<svg width='17px' height='17px' viewBox='0 0 1600 1600' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
+			<g fill="#000000" stroke="none">
 			<path d="M919 1562 c-102 -34 -173 -111 -205 -219 -10 -33 -22 -54 -34 -58 -49 -15 -110 -116 -110 -181 0 -12 -11 -26 -26 -35 -48 -25 -110 -105 -123
 -156 -7 -26 -19 -68 -27 -93 -27 -83 -16 -126 55 -219 53 -70 85 -91 139 -91
 96 0 160 66 127 130 -15 29 -61 60 -87 60 -7 -1 1 -7 19 -15 93 -40 74 -135

@@ -167,7 +167,7 @@ export function LoginSignup({ variation }: LoginSignupProps) {
       <Container size={800} my={40}>
         <div className={classes.titleDiv}>
           <Logo />
-          <span className={classes.appTitle}>Baker's Inventory Manager</span>
+          <span className={classes.appTitle}>{"Bakers Inventory Manager"}</span>
         </div>
 
         <Paper p={30} mt={30} radius='md' className={classes.paper}>

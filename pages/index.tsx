@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Link from 'next/link'
 import { Button, createStyles, Group, Text } from '@mantine/core'
 import styles from './index.module.css'
-import { Receipt1 } from '../images/Receipt1'
+import { Croissant } from '../images/Croissant'
 import { Receipt2 } from '../images/Receipt2'
 import { Receipt3 } from '../images/Receipt3'
 
@@ -40,14 +40,14 @@ function HeroTitle() {
   return (
     <div className={styles.indexBg}>
       <ul className={styles.icons}>
-        <Receipt1 />
+        <Croissant />
         <Receipt2 />
         <Receipt3 />
         <Receipt2 />
         <Receipt3 />
         <Receipt3 />
         <Receipt3 />
-        <Receipt1 />
+        <Croissant />
         <Receipt2 />
         <Receipt2 />
       </ul>

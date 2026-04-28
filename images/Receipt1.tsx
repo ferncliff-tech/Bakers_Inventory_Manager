@@ -3,7 +3,16 @@ export function Receipt1() {
 		<svg width='17px' height='17px' viewBox='0 0 17 17' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
 			<g>
 			</g>
-			<path d='M8.5 3.5 C6.5 3.5 4.5 4.5 3.2 6.2 L1.5 5.5 C1 5.3 0.6 5.8 0.8 6.3 L2.5 10.5 C2.7 11 3.3 11 3.6 10.6 L4.5 9.3 C5.3 10.8 6.8 11.8 8.5 11.8 C10.2 11.8 11.7 10.8 12.5 9.3 L13.4 10.6 C13.7 11 14.3 11 14.5 10.5 L16.2 6.3 C16.4 5.8 16 5.3 15.5 5.5 L13.8 6.2 C12.5 4.5 10.5 3.5 8.5 3.5 Z M8.5 5 C10.5 5 12 6.5 12 8.5 C12 9 11.9 9.4 11.7 9.8 C11 9.2 10.2 8.8 9.3 8.6 C9.4 8.4 9.5 8.1 9.5 7.8 C9.5 7 8.8 6.5 8.5 6.5 C8.2 6.5 7.5 7 7.5 7.8 C7.5 8.1 7.6 8.4 7.7 8.6 C6.8 8.8 6 9.2 5.3 9.8 C5.1 9.4 5 9 5 8.5 C5 6.5 6.5 5 8.5 5 Z' fill='#000000' />
+			<path
+        	d='M2 8.5 C1.5 6 3 3.5 5.5 2.5 L8.5 2 L11.5 2.5 C14 3.5 15.5 6 15 8.5 C14.5 11 12.5 13 10 13.5 L8.5 15 L7 13.5 C4.5 13 2.5 11 2 8.5 Z'
+        	fill='none'
+        	stroke='#000000'
+        	strokeWidth='1'
+      		/>
+      		<path d='M4.5 5.5 C6 4.5 10 4.5 12.5 5.5' fill='none' stroke='#000000' strokeWidth='1' strokeLinecap='round' />
+      		<path d='M3.8 7.5 C5.5 6.2 11.5 6.2 13.2 7.5' fill='none' stroke='#000000' strokeWidth='1' strokeLinecap='round' />
+      		<path d='M4.2 9.5 C5.8 8.5 11.2 8.5 12.8 9.5' fill='none' stroke='#000000' strokeWidth='1' strokeLinecap='round' />
+      		<path d='M5.5 11.2 C6.8 10.5 10.2 10.5 11.5 11.2' fill='none' stroke='#000000' strokeWidth='1' strokeLinecap='round' />
 		</svg>
 	)
 }

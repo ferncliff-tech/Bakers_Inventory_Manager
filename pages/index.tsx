@@ -52,8 +52,8 @@ function HeroTitle() {
         <Receipt2 />
       </ul>
       <div className={classes.homeDiv}>
-        <Text className={classes.title}>Order Hoarder</Text>
-        <Text  className={classes.subtitle}>Manage, Analyze, and Hoard your Square Orders</Text>
+        <Text className={classes.title}>{"Baker's Inventory Manager"}</Text>
+        <Text className={classes.subtitle}>Turn your bakery whiteboard into automated inventory management</Text>
         <Group className={classes.buttonGroup}>
           <Link
             href='/signup'>

@@ -167,7 +167,7 @@ export function LoginSignup({ variation }: LoginSignupProps) {
       <Container size={800} my={40}>
         <div className={classes.titleDiv}>
           <Logo />
-          <span className={classes.appTitle}>Order Hoarder</span>
+          <span className={classes.appTitle}>Baker's Inventory Manager</span>
         </div>
 
         <Paper p={30} mt={30} radius='md' className={classes.paper}>
@@ -177,7 +177,7 @@ export function LoginSignup({ variation }: LoginSignupProps) {
               fontWeight: 900
             })}
           >
-            {variation === 'login' ? 'Get Back to Hoarding!' : 'Welcome to the Hoard'}
+            {variation === 'login' ? 'Get Back to Baking!' : 'Welcome to the Bakery!'}
           </Title>
 
           {(variation === 'login') ? <Text color='dimmed' size='sm' mt={5}>

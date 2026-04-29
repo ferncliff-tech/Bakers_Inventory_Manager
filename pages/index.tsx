@@ -4,7 +4,7 @@ import { Button, createStyles, Group, Text } from '@mantine/core'
 import styles from './index.module.css'
 import { Croissant } from '../images/Croissant'
 import { Baguette } from '../images/Baguette'
-import { Receipt3 } from '../images/Receipt3'
+import { Muffin } from '../images/Muffin'
 
 const useStyles = createStyles(() => ({
   backgroundDiv: {
@@ -42,11 +42,11 @@ function HeroTitle() {
       <ul className={styles.icons}>
         <Croissant />
         <Baguette />
-        <Receipt3 />
+        <Muffin />
         <Baguette />
-        <Receipt3 />
-        <Receipt3 />
-        <Receipt3 />
+        <Muffin />
+        <Muffin />
+        <Muffin />
         <Croissant />
         <Baguette />
         <Baguette />

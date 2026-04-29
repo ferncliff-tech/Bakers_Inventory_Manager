@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Button, createStyles, Group, Text } from '@mantine/core'
 import styles from './index.module.css'
 import { Croissant } from '../images/Croissant'
-import { Receipt2 } from '../images/Receipt2'
+import { Baguette } from '../images/Baguette'
 import { Receipt3 } from '../images/Receipt3'
 
 const useStyles = createStyles(() => ({
@@ -41,15 +41,15 @@ function HeroTitle() {
     <div className={styles.indexBg}>
       <ul className={styles.icons}>
         <Croissant />
-        <Receipt2 />
+        <Baguette />
         <Receipt3 />
-        <Receipt2 />
+        <Baguette />
         <Receipt3 />
         <Receipt3 />
         <Receipt3 />
         <Croissant />
-        <Receipt2 />
-        <Receipt2 />
+        <Baguette />
+        <Baguette />
       </ul>
       <div className={classes.homeDiv}>
         <Text className={classes.title}>{"Baker's Inventory Manager"}</Text>

@@ -165,18 +165,6 @@ const config = {
       },
       {
         "fromEnvVar": null,
-        "value": "rhel-openssl-1.0.x"
-      },
-      {
-        "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x"
-      },
-      {
-        "fromEnvVar": null,
-        "value": "debian-openssl-1.1.x"
-      },
-      {
-        "fromEnvVar": null,
         "value": "rhel-openssl-3.0.x"
       }
     ],
@@ -203,8 +191,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./generated/postgresql\"\n  binaryTargets = [\"native\", \"rhel-openssl-1.0.x\", \"debian-openssl-3.0.x\", \"debian-openssl-1.1.x\", \"rhel-openssl-3.0.x\"]\n}\n\n// used for production\ndatasource postgresql {\n  provider = \"postgresql\"\n  url      = env(\"POSTGRES_DATABASE_URL\")\n}\n\nmodel User {\n  id               String      @id @default(uuid())\n  username         String      @unique\n  password         String\n  userDeniedSquare Boolean     @default(false)\n  firstName        String?\n  lastName         String?\n  salt             String\n  avatar           String\n  createdAt        DateTime    @default(now())\n  metaData         MetaData?\n  squareData       SquareData?\n}\n\nmodel SquareData {\n  id         Int    @id @default(autoincrement())\n  tokens     String\n  expiresAt  String\n  merchantId String\n  userId     String @unique\n  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel MetaData {\n  id                     Int      @id @default(autoincrement())\n  userId                 String   @unique\n  iv                     String\n  scopes                 String\n  squareTokenLastUpdated DateTime @default(now())\n  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n",
-  "inlineSchemaHash": "478cd88924a34a41cc2c4f4ea20fdb8c8a61db8fab428fdf3cb7eb6413796a97",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./generated/postgresql\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\n// used for production\ndatasource postgresql {\n  provider = \"postgresql\"\n  url      = env(\"POSTGRES_DATABASE_URL\")\n}\n\nmodel User {\n  id               String      @id @default(uuid())\n  username         String      @unique\n  password         String\n  userDeniedSquare Boolean     @default(false)\n  firstName        String?\n  lastName         String?\n  salt             String\n  avatar           String\n  createdAt        DateTime    @default(now())\n  metaData         MetaData?\n  squareData       SquareData?\n}\n\nmodel SquareData {\n  id         Int    @id @default(autoincrement())\n  tokens     String\n  expiresAt  String\n  merchantId String\n  userId     String @unique\n  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel MetaData {\n  id                     Int      @id @default(autoincrement())\n  userId                 String   @unique\n  iv                     String\n  scopes                 String\n  squareTokenLastUpdated DateTime @default(now())\n  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n",
+  "inlineSchemaHash": "e71ffbf4a11c17ad887896d825a3bbfca5e6c12869bda6686c54e8f855ac6ca9",
   "copyEngine": true
 }
 
@@ -244,18 +232,6 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "prisma/generated/postgresql/query_engine-windows.dll.node")
-
-// file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-rhel-openssl-1.0.x.so.node");
-path.join(process.cwd(), "prisma/generated/postgresql/libquery_engine-rhel-openssl-1.0.x.so.node")
-
-// file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
-path.join(process.cwd(), "prisma/generated/postgresql/libquery_engine-debian-openssl-3.0.x.so.node")
-
-// file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-debian-openssl-1.1.x.so.node");
-path.join(process.cwd(), "prisma/generated/postgresql/libquery_engine-debian-openssl-1.1.x.so.node")
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");

@@ -172,12 +172,13 @@ export const getAllUserData = async (): Promise<DBUser[]> => {
 /**
  * @description Get Square data for all users
 */
-export const getAllSquareData = async () => {
+export const getAllSquareData = async (): Promise<SquareData[]> => {
     try {
         return await prisma.squareData.findMany()
     } catch (e) {
         handlePrismaError(e)
-    }   
+    }
+    return []
 }
 
 /**

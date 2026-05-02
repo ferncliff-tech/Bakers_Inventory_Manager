@@ -19,21 +19,19 @@ async function handler(req:NextApiRequest, res: NextApiResponse) {
         // Query all Square Data in the DB
         const squareData = await getAllSquareData()
         const transformedData = await Promise.all(squareData.map(async (data:SquareData) => {
-            if (isString(data.expiresAt) && new Date(data.expiresAt).getTime() - TWENTY_FOUR_DAYS < NOW) {
-                if (isString(data.userId)) {
-                    const { iv } = await getMetaData(data.userId);
-                    if (isString(iv)) {
-                        // Return the transformed object for this iteration
-                        return { ...data, iv };
-                    }
+            if (isString(data.expiresAt) && isString(data.userId) && isString(data.tokens) && new Date(data.expiresAt).getTime() - TWENTY_FOUR_DAYS < NOW) {
+                const metaData = await getMetaData(data.userId);
+                if (metaData && isString(metaData.iv)) {
+                    // Return the transformed object for this iteration
+                    return { ...data, iv: metaData.iv } as SquareData & { userId: string; tokens: string; iv: string };
                 }
             }
             // Return null (or some default value) if the condition is not met
             return null;
         }));
         
-        // Filter out null values
-        const expiredTokens = transformedData.filter(item => item !== null);
+        // Filter out null values and narrow the type
+        const expiredTokens = transformedData.filter((item): item is SquareData & { userId: string; tokens: string; iv: string } => item !== null);
         // Promise and loop through thing to query the refresh token square endpoint
         await Promise.all(expiredTokens.map( async (data) => {
             try{

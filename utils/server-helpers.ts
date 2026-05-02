@@ -163,10 +163,12 @@ export const deauthorizeToken = async ({
         revokeOnlyAccessToken: boolean
     }) => {
         try {
-            if (!user?.squareData?.tokens || !user?.metaData?.iv) {
+            const tokens = user?.squareData?.tokens
+            const iv = user?.metaData?.iv
+            if (!tokens || !iv) {
                 throw new Error('User data error')
             }
-            const { accessToken } = decryptToken(user?.squareData?.tokens, user?.metaData?.iv)
+            const { accessToken } = decryptToken(tokens, iv)
 
             const properClientSecret = 'Client ' + process.env.APPLICATION_SECRET
             const oAuthApi = getOauthClient()

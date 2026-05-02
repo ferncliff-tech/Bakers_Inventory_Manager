@@ -15,12 +15,15 @@ async function handler(req: NextApiUserRequest, res: NextApiResponse) {
     }
     const id = decodeJWT(req)
     const user = await getUser(id)
-    if (!isString(user?.squareData?.tokens) || !isString(user?.metaData?.iv)) {
+    const tokens = user?.squareData?.tokens
+    const iv = user?.metaData?.iv
+
+    if (!isString(tokens) || !isString(iv)) {
         return res.status(500).json({ locations: [],
 isTokenValid: false,
 error: 'squareData or metaData is not a string' })
     }
-    const { accessToken } = decryptToken(user?.squareData?.tokens, user?.metaData?.iv)
+    const { accessToken } = decryptToken(tokens, iv)
     const { merchantsApi } = getUserClient(accessToken)
     const { result } = await merchantsApi.listMerchants()
     return res.status(200).json(result)

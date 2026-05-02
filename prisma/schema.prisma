@@ -7,7 +7,7 @@ generator client {
 // used for production
 datasource postgresql {
   provider          = "postgresql"
-  url               = env("POSTGRES_DATABASE_URL")
+  url               = env("POSTGRES_URL")
 }
 
 model User {

@@ -186,13 +186,13 @@ const config = {
   "inlineDatasources": {
     "postgresql": {
       "url": {
-        "fromEnvVar": "POSTGRES_DATABASE_URL",
+        "fromEnvVar": "POSTGRES_URL",
         "value": null
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./generated/postgresql\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\n// used for production\ndatasource postgresql {\n  provider = \"postgresql\"\n  url      = env(\"POSTGRES_DATABASE_URL\")\n}\n\nmodel User {\n  id               String      @id @default(uuid())\n  username         String      @unique\n  password         String\n  userDeniedSquare Boolean     @default(false)\n  firstName        String?\n  lastName         String?\n  salt             String\n  avatar           String\n  createdAt        DateTime    @default(now())\n  metaData         MetaData?\n  squareData       SquareData?\n}\n\nmodel SquareData {\n  id         Int    @id @default(autoincrement())\n  tokens     String\n  expiresAt  String\n  merchantId String\n  userId     String @unique\n  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel MetaData {\n  id                     Int      @id @default(autoincrement())\n  userId                 String   @unique\n  iv                     String\n  scopes                 String\n  squareTokenLastUpdated DateTime @default(now())\n  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n",
-  "inlineSchemaHash": "e71ffbf4a11c17ad887896d825a3bbfca5e6c12869bda6686c54e8f855ac6ca9",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./generated/postgresql\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\n// used for production\ndatasource postgresql {\n  provider = \"postgresql\"\n  url      = env(\"POSTGRES_URL\")\n}\n\nmodel User {\n  id               String      @id @default(uuid())\n  username         String      @unique\n  password         String\n  userDeniedSquare Boolean     @default(false)\n  firstName        String?\n  lastName         String?\n  salt             String\n  avatar           String\n  createdAt        DateTime    @default(now())\n  metaData         MetaData?\n  squareData       SquareData?\n}\n\nmodel SquareData {\n  id         Int    @id @default(autoincrement())\n  tokens     String\n  expiresAt  String\n  merchantId String\n  userId     String @unique\n  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel MetaData {\n  id                     Int      @id @default(autoincrement())\n  userId                 String   @unique\n  iv                     String\n  scopes                 String\n  squareTokenLastUpdated DateTime @default(now())\n  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n",
+  "inlineSchemaHash": "7288ec85b047c0f3767a5d8b464c33535a63b96b9d84edccc030e4d2a541c470",
   "copyEngine": true
 }
 

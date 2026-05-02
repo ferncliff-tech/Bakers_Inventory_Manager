@@ -182,6 +182,7 @@ const config = {
     "postgresql"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "postgresql": {
       "url": {

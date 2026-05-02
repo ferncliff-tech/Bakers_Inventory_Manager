@@ -155,7 +155,7 @@ export const getSquareData = async (id: string) => {
 /**
  * @description Get all User data from the DB
 */
-export const getAllUserData = async () => {
+export const getAllUserData = async (): Promise<DBUser[]> => {
     try {
         return await prisma.user.findMany({
             include: {
@@ -165,7 +165,8 @@ export const getAllUserData = async () => {
         })
     } catch (e) {
         handlePrismaError(e)
-    }   
+    }
+    return []
 }
 
 /**

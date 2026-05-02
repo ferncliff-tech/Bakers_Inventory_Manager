@@ -14,7 +14,7 @@ async function handler(req:NextApiRequest, res: NextApiResponse) {
             console.error('Missing or incorrect Cron Access Token')
             return res.status(401).json({message: 'unauthorized'})
         }
-        const data = await getAllUserData()
+        const data = await getAllUserData() ?? []
         res.status(200).json({message: 'success'})
         const transformedData = await Promise.all(data.map(async (user: DBUser) => {
             if (new Date(user.createdAt).getTime() + ONE_WEEK < NOW) {

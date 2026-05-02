@@ -43,12 +43,28 @@ export const createUser = async ({ username, password, firstName, lastName, salt
  */
 export const updateUser = async ({ id, user }: {id: string, user: DBUser}) => {
     try {
+        const {
+            username,
+            password,
+            firstName,
+            lastName,
+            salt,
+            avatar,
+            userDeniedSquare
+        } = user
+
         return await prisma.user.update({
             where: {
                 id
             },
             data: {
-                ...user
+                username,
+                password,
+                firstName,
+                lastName,
+                salt,
+                avatar,
+                userDeniedSquare
             }
         })
     } catch (e) {
@@ -186,11 +202,17 @@ export const getSquareDataByMerchantId = async (merchantId: string) => {
  */
 export const createSquareData = async ({ id, squareData }: {id: string, squareData: SquareData}) => {
     try {
+        const { tokens, expiresAt, merchantId } = squareData
+
+        if (!isString(tokens) || !isString(expiresAt) || !isString(merchantId)) {
+            throw new Error('SquareData.tokens, expiresAt, and merchantId are required')
+        }
+
         return await prisma.squareData.create({
             data: {
-                tokens: squareData.tokens,
-                expiresAt: squareData.expiresAt,
-                merchantId: squareData.merchantId,
+                tokens,
+                expiresAt,
+                merchantId,
                 userId: id
             }
         })
@@ -252,10 +274,18 @@ export const getMetaData = async (id: string) => {
  */
 export const createMetaData = async ({ id, metaData }: {id: string, metaData: MetaData}) => {
     try {
+        const { iv, scopes, squareTokenLastUpdated } = metaData
+
+        if (!isString(iv) || !isString(scopes) || !isString(squareTokenLastUpdated)) {
+            throw new Error('MetaData.iv, scopes, and squareTokenLastUpdated are required')
+        }
+
         return await prisma.metaData.create({
             data: {
                 userId: id,
-                ...metaData
+                iv,
+                scopes,
+                squareTokenLastUpdated
             }
         })
     } catch (e) {

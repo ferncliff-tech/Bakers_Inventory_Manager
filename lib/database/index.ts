@@ -5,7 +5,7 @@ import prisma from '../prisma'
 import { isString } from '../../utils/helpers'
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
 
-const handlePrismaError= (e: unknown) => {
+const handlePrismaError= (e: unknown): never => {
     if (e instanceof PrismaClientKnownRequestError) {
         // Handle known Prisma client request errors
         console.error('Prisma request error:', e.message)

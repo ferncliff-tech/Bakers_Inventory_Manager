@@ -23,7 +23,7 @@ async function handler(req:NextApiRequest, res: NextApiResponse) {
             // Return null (or some default value) if the condition is not met
             return null;
         }));
-        const expiredUsers = transformedData.filter(item => item !== null);
+        const expiredUsers = transformedData.filter((item): item is DBUser => item !== null);
         await Promise.all(expiredUsers.map( async (data) => {
             if (data.squareData !== null) {
                 await deauthorizeToken({

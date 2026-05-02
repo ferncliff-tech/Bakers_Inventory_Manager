@@ -17,9 +17,12 @@ async function handler(req: NextApiRequest, res: NextApiResponse<RevokeTokenResp
         try{
             const id = decodeJWT(req)
             const user = await getUser(id)
+            if (!user) {
+                throw new Error('User not found')
+            }
             const revokeOnlyAccessToken = req?.body?.revokeToken ? true : false
             const result = await deauthorizeToken({user, revokeOnlyAccessToken})
-            if (!revokeOnlyAccessToken) {
+            if (!revokeOnlyAccessToken && user.squareData?.merchantId) {
                 await deleteSquareDataByMerchantId(user.squareData.merchantId)
             }
 

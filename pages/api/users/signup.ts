@@ -28,6 +28,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 salt,
                 avatar: Crypto.createHash('md5').update(username).digest('hex')
             })
+            if (!newUser) {
+                throw new Error('Failed to create user')
+            }
 
             // create a jwt token that is valid for 7 days
             const token = await createJWT({ sub: newUser.id })

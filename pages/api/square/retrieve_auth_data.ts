@@ -12,7 +12,7 @@ async function handler(req: NextApiUserRequest, res: NextApiResponse) {
     const id = decodeJWT(req)
     const user = await getUser(id)
     const isAuthed = user?.squareData ? true : false
-    const userDeniedSquare = user?.userDeniedSquare
+    const userDeniedSquare = user?.userDeniedSquare ?? false
 
     const authStatus: AuthStatus = {
         isAuthed,
